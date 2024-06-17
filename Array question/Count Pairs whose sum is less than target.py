@@ -33,6 +33,7 @@ break return count => 3
 def countPairs(nums,target):
     count = 0
     nums.sort() 
+
     left = 0 
     right = len(nums) - 1
     while left < right:
