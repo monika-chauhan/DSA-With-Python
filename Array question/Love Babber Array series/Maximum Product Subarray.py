@@ -20,16 +20,16 @@ def max_product_of_subarray(arr,n):
     max_product = float('-inf')
     pre = suf = 1 
     for i in range(n):
+        pre *= arr[i]
+        max_product = max(max_product, pre)
         if arr[i] == 0:
             pre = 1 
-        
+    for i in range(n-1,-1,-1):  
+        suf *= arr[n-i-1]
+        max_product = max(max_product,suf)
         if arr[n-i-1] == 0:
             suf = 1
-        
-        pre *= arr[i]
-        suf *= arr[n-i-1]
-
-        max_product = max(max_product,max(pre,suf))
+      
     return max_product
 
 arr = [6, -3, -10, 0, 2]
